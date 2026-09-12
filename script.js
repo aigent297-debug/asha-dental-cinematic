@@ -1,0 +1,8 @@
+const $ = (s, p=document) => p.querySelector(s); const $$ = (s,p=document) => [...p.querySelectorAll(s)];
+const videos=$$('video[data-src]');
+function load(v){if(!v.src){v.src=v.dataset.src;v.load();v.addEventListener('canplay',()=>v.classList.add('loaded'),{once:true});}}
+const io=new IntersectionObserver(entries=>entries.forEach(({target,isIntersecting})=>{if(isIntersecting){load(target);target.play().catch(()=>{});}else target.pause()}),{rootMargin:'400px 0px'}); videos.forEach(v=>io.observe(v));
+const nav=$('.nav'), bar=$('.progress i'); addEventListener('scroll',()=>{nav.classList.toggle('scrolled',scrollY>30);bar.style.height=`${scrollY/(document.documentElement.scrollHeight-innerHeight)*100}%`},{passive:true});
+const toggle=$('.menu-toggle');toggle.addEventListener('click',()=>{nav.classList.toggle('menu-open');toggle.setAttribute('aria-expanded',nav.classList.contains('menu-open'))}); $$('nav a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('menu-open')));
+const player=$('.treatment-video'), playerBlur=$('.treatment-player .blur-video'), playerTitle=$('.treatment-player h3');function setTreatment(b){$$('.treatment').forEach(x=>x.classList.toggle('active',x===b));[player,playerBlur].forEach(v=>{v.src=b.dataset.video;v.load();v.play().catch(()=>{});});playerTitle.textContent=b.dataset.title}setTreatment($('.treatment.active'));$$('.treatment').forEach(b=>b.addEventListener('click',()=>setTreatment(b)));
+$('#booking-form').addEventListener('submit',e=>{e.preventDefault();$('.form-note').textContent='Thank you — your request is ready to send. Please call +91 72762 09022 to confirm your appointment.';e.currentTarget.reset()});

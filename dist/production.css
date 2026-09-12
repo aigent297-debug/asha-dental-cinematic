@@ -51,13 +51,13 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .treatment-detail li small{display:block;color:var(--green);font:8px var(--mono);margin-bottom:9px}
 .inline-cta{display:inline-block;color:var(--green);font:9px var(--mono);text-transform:uppercase;letter-spacing:.08em;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:5px}
 
-.technology{background:#203127;color:#edf0e9;display:grid;grid-template-columns:1fr 1fr;gap:9vw}
+.content-section.technology{background:radial-gradient(circle at 18% 22%,#2a4033 0,#203127 38%,#17241c 100%);color:#edf0e9;display:grid;grid-template-columns:1fr 1fr;gap:9vw}
 .technology h2 i,.technology .kicker{color:#b5cfba}
-.technology-flow{border-top:1px solid rgba(255,255,255,.25)}
-.technology-flow article{display:grid;grid-template-columns:35px 1fr 1fr;gap:20px;padding:24px 0;border-bottom:1px solid rgba(255,255,255,.18);align-items:start}
-.technology-flow span{font:8px var(--mono);color:#b5cfba}
+.technology-flow{border-top:1px solid rgba(255,255,255,.38)}
+.technology-flow article{display:grid;grid-template-columns:35px 1fr 1fr;gap:20px;padding:27px 0;border-bottom:1px solid rgba(255,255,255,.28);align-items:start}
+.technology-flow span{font:10px var(--mono);color:#b5cfba}
 .technology-flow h3{font:500 23px var(--serif);margin:0}
-.technology-flow p{font-size:12px;line-height:1.7;color:#bcc7bf;margin:0}
+.technology-flow p{font-size:16px;line-height:1.65;color:#d1dad3;margin:0}
 
 .doctors{background:#e8e4db}
 .doctor{display:grid;grid-template-columns:120px 1fr;gap:40px;border-top:1px solid #99a49b;padding:35px 0}
@@ -67,14 +67,14 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .doctor p:not(.kicker){font-size:14px;line-height:1.75;max-width:760px}
 .doctor small{font:8px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:#5f7465}
 
-.process{background:#111915;color:#e9e8e0}
+.content-section.process{background:radial-gradient(circle at 82% 18%,#203127 0,#111915 48%,#0b110e 100%);color:#e9e8e0}
 .process .kicker,.process h2 i{color:var(--green)}
-.process ol{list-style:none;padding:0;margin:0;border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(6,1fr)}
-.process li{min-height:240px;padding:25px 18px;border-right:1px solid var(--line)}
+.process ol{list-style:none;padding:0;margin:0;border-top:1px solid rgba(255,255,255,.28);display:grid;grid-template-columns:repeat(6,1fr)}
+.process li{min-height:240px;padding:25px 18px;border-right:1px solid rgba(255,255,255,.2)}
 .process li:first-child{padding-left:0}
-.process li span{font:8px var(--mono);color:var(--green)}
+.process li span{font:10px var(--mono);color:#b8d2bd}
 .process li b{display:block;font:500 25px var(--serif);margin:65px 0 14px}
-.process li p{font-size:11px;line-height:1.6;color:#9da8a0}
+.process li p{font-size:16px;line-height:1.65;color:#c7d0c9}
 .results-note{text-align:center;background:#334a3c;color:#f1f0e9}
 .results-note .kicker{color:#c6dac9}
 .results-note blockquote{font:500 clamp(2.7rem,6vw,6.5rem)/1 var(--serif);letter-spacing:-.05em;margin:35px auto;max-width:1000px}
@@ -120,7 +120,7 @@ footer a{display:block;color:#cbd2cc;text-decoration:none;font-size:11px;margin:
 .contact-float a{color:#dbe3dc;text-decoration:none;padding:11px 14px;font:8px var(--mono);text-transform:uppercase;letter-spacing:.08em}
 .contact-float a+a{border-left:1px solid #768b7d}
 
-@media(max-width:1050px){.clinic-story,.technology,.faq,.appointment{grid-template-columns:1fr}
+@media(max-width:1050px){.clinic-story,.content-section.technology,.faq,.appointment{grid-template-columns:1fr}
 .clinic-story{gap:60px}
 .technology-flow{margin-top:20px}
 .process ol{grid-template-columns:repeat(3,1fr)}
@@ -185,4 +185,3 @@ footer{grid-template-columns:1fr}
 .loader{transition:none}
 .contact-float{backdrop-filter:none}
 }
-

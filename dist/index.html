@@ -5,8 +5,13 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="description" content="Advanced dental care at Asha Super Speciality Dental Clinic, Akola.">
 <title>Asha Dental | A New Standard in Dental Care</title>
+<link rel="canonical" href="https://aigent297-debug.github.io/asha-dental-cinematic/">
+<meta name="theme-color" content="#0b100d">
+<meta property="og:type" content="website"><meta property="og:title" content="Asha Dental — A New Standard in Dental Care"><meta property="og:description" content="Advanced dentistry, considered expertise and a cinematic patient experience in Akola."><meta property="og:url" content="https://aigent297-debug.github.io/asha-dental-cinematic/">
+<meta name="twitter:card" content="summary"><meta name="twitter:title" content="Asha Dental — A New Standard in Dental Care"><meta name="twitter:description" content="Advanced dental care in Akola.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="production.css">
 </head>
 <body>
 <header class="nav">
@@ -15,11 +20,14 @@
 <b>ASHA <i>DENTAL</i>
 </b>
 </a>
-<nav>
-<a href="#scene-01">Home</a>
+<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu"><span>Menu</span><i></i>
+</button><nav id="site-menu">
+<a href="#about">About</a>
 <a href="#scene-06">Care</a>
-<a href="#scene-07">Treatments</a>
-<a href="#scene-15">Contact</a>
+<a href="#treatments">Treatments</a>
+<a href="#technology">Technology</a>
+<a href="#doctors">Doctors</a>
+<a href="#appointment">Contact</a>
 </nav>
 <a href="#appointment" class="book">Book appointment <b>↗</b>
 </a>
@@ -45,6 +53,7 @@
 <p>Advanced dentistry, considered expertise, and a patient experience designed around your smile.</p>
 <a class="cta" href="#appointment">Begin your journey <b>↗</b>
 </a>
+<a class="hero-link" href="#treatments">Explore treatments <b>↓</b></a>
 </div>
 <span class="scroll">Scroll to explore <b>↓</b>
 </span>
@@ -62,6 +71,7 @@
 <i>Diagnose better.</i>
 </h2>
 <p>Digital imaging supports a more informed understanding and a clearer clinical conversation.</p>
+<small class="scene-meta">Imaging · Assessment · Planning</small>
 </div>
 </section>
 <section class="scene align-left" id="scene-03" data-scene="03">
@@ -91,6 +101,7 @@
 <h2>Precision begins<br>with <i>protection.</i>
 </h2>
 <p>Preparation, sterilization and protection are integral to the care environment.</p>
+<small class="scene-meta">Preparation · Sterilization · Protection</small>
 </div>
 </section>
 <section class="scene align-right" id="scene-05" data-scene="05">
@@ -121,6 +132,7 @@
 <i>dental experience.</i>
 </h2>
 <p>Clear communication, a calm setting and care that respects your pace.</p>
+<small class="scene-meta">Comfort · Communication · Support</small>
 </div>
 </section>
 <section class="scene align-right" id="scene-07" data-scene="07">
@@ -136,6 +148,7 @@
 <i>you’ve lost.</i>
 </h2>
 <p>Explore implant treatment options through a precise, planned and patient-led consultation.</p>
+<small class="scene-meta">Consultation · Digital Planning · Restoration</small><a class="scene-link" href="#treatments" data-treatment="implants">Explore treatment →</a>
 </div>
 </section>
 <section class="scene align-left" id="scene-08" data-scene="08">
@@ -151,6 +164,7 @@
 <i>natural tooth.</i>
 </h2>
 <p>Understand the diagnosis, treatment and restoration process with clarity at every step.</p>
+<small class="scene-meta">Diagnosis · Treatment · Restoration</small><a class="scene-link" href="#treatments" data-treatment="root-canal">Explore treatment →</a>
 </div>
 </section>
 <section class="scene align-center" id="scene-09" data-scene="09">
@@ -181,6 +195,7 @@
 <i>when you need it.</i>
 </h2>
 <p>Assessment and imaging help you understand the right next step for difficult teeth.</p>
+<small class="scene-meta">Evaluation · Imaging · Treatment options</small><a class="scene-link" href="#treatments" data-treatment="wisdom-tooth">Explore treatment →</a>
 </div>
 </section>
 <section class="scene light align-left" id="scene-11" data-scene="11">
@@ -196,6 +211,7 @@
 <i>A better smile.</i>
 </h2>
 <p>Braces and alignment planning designed around a clear picture of your smile goals.</p>
+<small class="scene-meta">Assessment · Braces · Alignment planning</small><a class="scene-link" href="#treatments" data-treatment="orthodontics">Explore treatment →</a>
 </div>
 </section>
 <section class="scene light align-right" id="scene-12" data-scene="12">
@@ -211,6 +227,7 @@
 <i>starts here.</i>
 </h2>
 <p>Discuss your whitening options and what feels right for your smile.</p>
+<small class="scene-meta">Consultation · Shade planning · Aftercare</small><a class="scene-link" href="#treatments" data-treatment="whitening">Explore treatment →</a>
 </div>
 </section>
 <section class="scene align-center" id="scene-13" data-scene="13">
@@ -226,6 +243,7 @@
 <i>Visualize possibility.</i>
 </h2>
 <p>A considered conversation about the smile you want to see.</p>
+<small class="scene-meta">Visualize · Plan · Refine</small><a class="scene-link" href="#treatments" data-treatment="smile-design">Explore treatment →</a>
 </div>
 </section>
 <section class="scene align-left" id="scene-14" data-scene="14">
@@ -258,18 +276,34 @@
 </a>
 </div>
 </section>
-<section class="appointment" id="appointment">
-<div>
-<p class="kicker">BOOK A CONSULTATION</p>
-<h2>Let’s begin<br>with a <i>conversation.</i>
-</h2>
-<p>Call the clinic to schedule your appointment and discuss how we can help.</p>
-</div>
-<a class="phone" href="tel:+917276209022">+91 72762 09022 <b>↗</b>
-</a>
-<p class="hours">Monday–Saturday · 11:00 am–9:00 pm<br>Asha Maxillofacial and Dental Super Speciality Hospital · Alsi Plots, Akola</p>
-</section>
+<section class="clinic-story content-section" id="about"><header><p class="kicker">BEYOND THE FILM / THE CLINIC</p><h2>Specialist care.<br><i>Human understanding.</i></h2></header><div class="story-body"><p class="large-copy">Asha Maxillofacial and Dental Super Speciality Hospital brings comprehensive dental care and specialist expertise together in Akola.</p><p>Led by experienced clinicians, the practice approaches each patient through careful assessment, clear explanation and an individual treatment plan. The environment is designed to support calm conversations as much as precise clinical work.</p><dl class="facts"><div><dt>Location</dt><dd>Alsi Plots, Akola</dd></div><div><dt>Clinic hours</dt><dd>Mon–Sat · 11:00–21:00</dd></div><div><dt>Consultations</dt><dd>By appointment</dd></div></dl></div></section>
+
+<section class="treatment-explorer content-section" id="treatments"><header><p class="kicker">TREATMENT EXPLORER</p><h2>Comprehensive care,<br><i>clearly explained.</i></h2><p>Select a treatment to understand what it addresses and how the care journey begins.</p></header><div class="treatment-directory" role="list">
+<details id="implants"><summary><span>01</span><b>Dental Implants</b><em>Implant dentistry</em></summary><div class="treatment-detail"><p>Implants may replace a missing tooth or support a larger restoration. Suitability depends on a clinical examination, imaging and your individual oral health.</p><ol><li><small>01</small> Consultation</li><li><small>02</small> Imaging and planning</li><li><small>03</small> Treatment</li><li><small>04</small> Restoration and review</li></ol><a href="#appointment" class="inline-cta">Discuss dental implants →</a></div></details>
+<details id="root-canal"><summary><span>02</span><b>Root Canal Treatment</b><em>Restorative dentistry</em></summary><div class="treatment-detail"><p>Root canal treatment addresses infection or inflammation inside a tooth. The goal is to treat the affected area, preserve the natural tooth where clinically appropriate and plan its restoration.</p><ol><li><small>01</small> Diagnosis</li><li><small>02</small> Root canal care</li><li><small>03</small> Restoration</li><li><small>04</small> Review</li></ol><a href="#appointment" class="inline-cta">Request a consultation →</a></div></details>
+<details id="orthodontics"><summary><span>03</span><b>Braces & Alignment</b><em>Orthodontics</em></summary><div class="treatment-detail"><p>An orthodontic assessment looks at tooth position, bite and your goals before discussing suitable alignment options.</p><ol><li><small>01</small> Assessment</li><li><small>02</small> Records</li><li><small>03</small> Treatment planning</li><li><small>04</small> Progress reviews</li></ol><a href="#appointment" class="inline-cta">Explore alignment care →</a></div></details>
+<details id="wisdom-tooth"><summary><span>04</span><b>Wisdom Tooth Care</b><em>Oral surgery</em></summary><div class="treatment-detail"><p>Wisdom teeth can require specialist evaluation when they are impacted, difficult to clean or associated with discomfort. Imaging helps guide the appropriate options.</p><a href="#appointment" class="inline-cta">Arrange an evaluation →</a></div></details>
+<details id="whitening"><summary><span>05</span><b>Teeth Whitening</b><em>Cosmetic dentistry</em></summary><div class="treatment-detail"><p>A consultation helps establish your starting shade, discuss expectations and determine whether whitening is appropriate for you.</p><a href="#appointment" class="inline-cta">Discuss whitening →</a></div></details>
+<details id="smile-design"><summary><span>06</span><b>Smile Designing</b><em>Cosmetic dentistry</em></summary><div class="treatment-detail"><p>Smile design considers the relationship between teeth, facial features and personal goals to support a considered treatment conversation.</p><a href="#appointment" class="inline-cta">Begin a smile consultation →</a></div></details>
+<details><summary><span>07</span><b>Dental X-rays & Preventive Care</b><em>General dentistry</em></summary><div class="treatment-detail"><p>Clinical assessment and dental imaging can help identify concerns, inform treatment decisions and support ongoing oral health.</p><a href="#appointment" class="inline-cta">Book an assessment →</a></div></details>
+</div></section>
+
+<section class="technology content-section" id="technology"><div><p class="kicker">TECHNOLOGY / WITH PURPOSE</p><h2>Better information.<br><i>More considered care.</i></h2></div><div class="technology-flow"><article><span>01</span><h3>Digital X-ray</h3><p>Imaging supports clinical assessment and helps make findings easier to discuss.</p></article><article><span>02</span><h3>Digital examination</h3><p>A structured evaluation brings together your concerns, clinical findings and options.</p></article><article><span>03</span><h3>Treatment planning</h3><p>Every recommendation is shaped around the diagnosis and the individual patient.</p></article><article><span>04</span><h3>Smile visualization</h3><p>Digital tools can help inform conversations about cosmetic and restorative goals.</p></article></div></section>
+
+<section class="doctors content-section" id="doctors"><header><p class="kicker">THE CLINICAL TEAM</p><h2>Experience with<br><i>a personal approach.</i></h2></header><div class="doctor"><span class="monogram">RP</span><div><p class="kicker">DR. RAVIKIRAN PHALKE</p><h3>BDS; (PG) DDS (OMFS)</h3><p>Oral and maxillofacial specialist with 15+ years of experience. Director of New Global Hospital and Critical Care Center, Akola; former lecturer at Pawar Dental College, Savangi (Meghe), Wardha; and former consultant with the Lifeline Express.</p><small>MAOMSI · MCIAOMS · Registration A-16539</small></div></div><div class="doctor"><span class="monogram">NP</span><div><p class="kicker">DR. NEHA R. PHALKE</p><h3>BDS & Cosmetologist</h3><p>12+ years of experience with expertise in root canal treatment and fixed partial and full dentures.</p><small>Root canal care · Fixed partial dentures · Full dentures</small></div></div></section>
+
+<section class="process content-section"><header><p class="kicker">YOUR CARE JOURNEY</p><h2>Clear at every<br><i>step.</i></h2></header><ol><li><span>01</span><b>Book</b><p>Choose a convenient time to speak with the clinic.</p></li><li><span>02</span><b>Consult</b><p>Share your concerns, history and goals.</p></li><li><span>03</span><b>Diagnose</b><p>Clinical assessment and imaging where appropriate.</p></li><li><span>04</span><b>Plan</b><p>Understand the findings and available options.</p></li><li><span>05</span><b>Treat</b><p>Receive care according to the agreed plan.</p></li><li><span>06</span><b>Maintain</b><p>Continue with reviews and preventive guidance.</p></li></ol></section>
+
+<section class="results-note content-section" id="results"><p class="kicker">RESULTS / RESPONSIBLY SHARED</p><blockquote>Every smile has a different starting point—and every outcome is personal.</blockquote><p>Clinical photographs and patient experiences are shared only with appropriate approval. Ask the team about relevant treatment examples during your consultation. Results vary by individual.</p></section>
+
+<section class="faq content-section" id="faq"><header><p class="kicker">COMMON QUESTIONS</p><h2>Before your<br><i>first visit.</i></h2></header><div><details><summary>How do I book an appointment?</summary><p>Use the form below, call the clinic on +91 72762 09022, or send a WhatsApp appointment request.</p></details><details><summary>What should I bring?</summary><p>Bring any relevant dental records, medication information and previous imaging you may have. The team can advise if anything else is needed.</p></details><details><summary>Will I receive a treatment plan?</summary><p>Recommendations follow a clinical assessment. The dentist will explain findings and suitable options before treatment proceeds.</p></details><details><summary>Are treatment results guaranteed?</summary><p>No medical or dental outcome can be guaranteed. Individual results depend on clinical circumstances and ongoing care.</p></details></div></section>
+
+<section class="appointment" id="appointment"><div class="appointment-intro"><p class="kicker">BOOK A CONSULTATION</p><h2>Let’s begin<br>with a <i>conversation.</i></h2><p>Send an appointment request through WhatsApp or call the clinic directly. A request is not confirmed until the clinic responds.</p><a class="phone" href="tel:+917276209022">+91 72762 09022 <b>↗</b></a><p class="hours">Monday–Saturday · 11:00 am–9:00 pm<br>Asha Maxillofacial and Dental Super Speciality Hospital · Alsi Plots, Akola</p></div><form id="appointment-form" novalidate><div class="field"><label for="name">Full name</label><input id="name" name="name" autocomplete="name" required><small></small></div><div class="field"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required><small></small></div><div class="field"><label for="email">Email <em>optional</em></label><input id="email" name="email" type="email" autocomplete="email"><small></small></div><div class="field"><label for="treatment">Treatment</label><select id="treatment" name="treatment"><option>General consultation</option><option>Dental implants</option><option>Root canal treatment</option><option>Braces & alignment</option><option>Wisdom tooth care</option><option>Teeth whitening</option><option>Smile designing</option></select></div><div class="field"><label for="date">Preferred date</label><input id="date" name="date" type="date" required><small></small></div><div class="field"><label for="time">Preferred time</label><select id="time" name="time"><option>11:00 am–2:00 pm</option><option>2:00 pm–5:00 pm</option><option>5:00 pm–9:00 pm</option></select></div><div class="field full"><label for="message">Message <em>optional</em></label><textarea id="message" name="message" rows="3" placeholder="Tell us how we can help"></textarea></div><button type="submit" class="submit-button">Send appointment request <b>↗</b></button><p class="form-status" role="status" aria-live="polite"></p></form></section>
+
+<footer><div class="footer-brand"><span>A</span><h2>ASHA <i>DENTAL</i></h2><p>Advanced dentistry, considered expertise and care designed around your smile.</p></div><div><p class="kicker">TREATMENTS</p><a href="#implants">Dental implants</a><a href="#root-canal">Root canal care</a><a href="#orthodontics">Braces & alignment</a><a href="#smile-design">Smile designing</a></div><div><p class="kicker">EXPLORE</p><a href="#about">About</a><a href="#technology">Technology</a><a href="#doctors">Doctors</a><a href="#faq">FAQs</a></div><div><p class="kicker">CONTACT</p><a href="tel:+917276209022">+91 72762 09022</a><p>Alsi Plots, Akola<br>Mon–Sat · 11:00–21:00</p></div><div class="legal"><span>© 2026 Asha Super Speciality Dental Clinic</span><span>Privacy · Terms · Medical information is general and does not replace a clinical consultation.</span></div></footer>
+<div class="contact-float" aria-label="Quick contact"><a href="tel:+917276209022">Call</a><a href="https://wa.me/917276209022" target="_blank" rel="noopener">WhatsApp</a></div>
 </main>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Dentist","name":"Asha Maxillofacial and Dental Super Speciality Hospital","url":"https://aigent297-debug.github.io/asha-dental-cinematic/","telephone":"+91 7276209022","address":{"@type":"PostalAddress","streetAddress":"Alsi Plots","addressLocality":"Akola","addressRegion":"Maharashtra","addressCountry":"IN"},"openingHours":"Mo-Sa 11:00-21:00","medicalSpecialty":"Dentistry"}</script>
 <script src="script.js">
 </script>
 </body>

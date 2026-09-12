@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://aigent297-debug.github.io/asha-dental-cinematic/sitemap.xml
+

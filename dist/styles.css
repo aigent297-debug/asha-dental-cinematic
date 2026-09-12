@@ -82,6 +82,7 @@ body{margin:0;background:var(--ink);color:#f0eee7;font-family:var(--sans);overfl
 .rail-numbers a.current{opacity:1;color:var(--green);transform:scale(1.24);font-weight:500}
 .rail-line{height:100%;width:1px;background:#d7e8dc2a;position:relative;overflow:hidden;flex:none!important}
 .rail-line b{position:absolute;inset:0 0 auto;height:var(--story-progress,0%);background:var(--green);transition:height .75s cubic-bezier(.2,.7,.2,1)}
+.chapters{transition:opacity .45s ease}.chapters.offstage{opacity:0;pointer-events:none}
 .loader{position:fixed;inset:0;z-index:100;background:#0b100d;display:grid;place-content:center;justify-items:center;gap:8px;transition:opacity .7s ease,visibility .7s}
 .loader.done{opacity:0;visibility:hidden;pointer-events:none}
 .loader span{width:54px;height:54px;border:1px solid var(--green);border-radius:50%;display:grid;place-items:center;font:500 30px var(--serif);color:var(--green);margin-bottom:13px}

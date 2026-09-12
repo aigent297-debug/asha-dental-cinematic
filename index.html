@@ -11,7 +11,7 @@
 <meta name="twitter:card" content="summary"><meta name="twitter:title" content="Asha Dental — A New Standard in Dental Care"><meta name="twitter:description" content="Advanced dental care in Akola.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="production.css?v=20260912-2">
+<link rel="stylesheet" href="production.css?v=20260912-3">
 </head>
 <body>
 <header class="nav">
@@ -20,14 +20,15 @@
 <b>ASHA <i>DENTAL</i>
 </b>
 </a>
-<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu"><span>Menu</span><i></i>
-</button><nav id="site-menu">
+<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu"><span>Menu</span><i aria-hidden="true"></i>
+</button><nav id="site-menu" aria-label="Primary navigation">
 <a href="#about">About</a>
 <a href="#scene-06">Care</a>
 <a href="#treatments">Treatments</a>
 <a href="#technology">Technology</a>
 <a href="#doctors">Doctors</a>
 <a href="#appointment">Contact</a>
+<a href="#appointment" class="menu-book">Book appointment <b>↗</b></a>
 </nav>
 <a href="#appointment" class="book">Book appointment <b>↗</b>
 </a>
@@ -301,10 +302,18 @@
 <section class="appointment" id="appointment"><div class="appointment-intro"><p class="kicker">BOOK A CONSULTATION</p><h2>Let’s begin<br>with a <i>conversation.</i></h2><p>Send an appointment request through WhatsApp or call the clinic directly. A request is not confirmed until the clinic responds.</p><a class="phone" href="tel:+917276209022">+91 72762 09022 <b>↗</b></a><p class="hours">Monday–Saturday · 11:00 am–9:00 pm<br>Asha Maxillofacial and Dental Super Speciality Hospital · Alsi Plots, Akola</p></div><form id="appointment-form" novalidate><div class="field"><label for="name">Full name</label><input id="name" name="name" autocomplete="name" required><small></small></div><div class="field"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required><small></small></div><div class="field"><label for="email">Email <em>optional</em></label><input id="email" name="email" type="email" autocomplete="email"><small></small></div><div class="field"><label for="treatment">Treatment</label><select id="treatment" name="treatment"><option>General consultation</option><option>Dental implants</option><option>Root canal treatment</option><option>Braces & alignment</option><option>Wisdom tooth care</option><option>Teeth whitening</option><option>Smile designing</option></select></div><div class="field"><label for="date">Preferred date</label><input id="date" name="date" type="date" required><small></small></div><div class="field"><label for="time">Preferred time</label><select id="time" name="time"><option>11:00 am–2:00 pm</option><option>2:00 pm–5:00 pm</option><option>5:00 pm–9:00 pm</option></select></div><div class="field full"><label for="message">Message <em>optional</em></label><textarea id="message" name="message" rows="3" placeholder="Tell us how we can help"></textarea></div><button type="submit" class="submit-button">Send appointment request <b>↗</b></button><p class="form-status" role="status" aria-live="polite"></p></form></section>
 
 <footer><div class="footer-brand"><span>A</span><h2>ASHA <i>DENTAL</i></h2><p>Advanced dentistry, considered expertise and care designed around your smile.</p></div><div><p class="kicker">TREATMENTS</p><a href="#implants">Dental implants</a><a href="#root-canal">Root canal care</a><a href="#orthodontics">Braces & alignment</a><a href="#smile-design">Smile designing</a></div><div><p class="kicker">EXPLORE</p><a href="#about">About</a><a href="#technology">Technology</a><a href="#doctors">Doctors</a><a href="#faq">FAQs</a></div><div><p class="kicker">CONTACT</p><a href="tel:+917276209022">+91 72762 09022</a><p>Alsi Plots, Akola<br>Mon–Sat · 11:00–21:00</p></div><div class="legal"><span>© 2026 Asha Super Speciality Dental Clinic</span><span>Privacy · Terms · Medical information is general and does not replace a clinical consultation.</span></div></footer>
-<div class="contact-float" aria-label="Quick contact"><a href="tel:+917276209022">Call</a><a href="https://wa.me/917276209022" target="_blank" rel="noopener">WhatsApp</a></div>
+<aside class="contact-assistant" aria-label="Asha Care Assistant">
+<button class="contact-launcher" type="button" aria-expanded="false" aria-controls="contact-panel"><span class="contact-launcher-icon" aria-hidden="true"><i></i><i></i><i></i></span><span>Let’s talk</span></button>
+<section class="contact-panel" id="contact-panel" role="dialog" aria-modal="false" aria-labelledby="contact-title" aria-hidden="true">
+<header><div><p class="kicker">ASHA CARE ASSISTANT</p><h2 id="contact-title">How can we help?</h2></div><button class="contact-close" type="button" aria-label="Close contact assistant">×</button></header>
+<div class="assistant-message"><span aria-hidden="true">A</span><p>Hello. Choose the quickest way to speak with our clinic team.</p></div>
+<div class="contact-options"><a href="tel:+917276209022"><small>CALL THE CLINIC</small><b>+91 72762 09022</b><i>↗</i></a><a href="https://wa.me/917276209022?text=Hello%20Asha%20Dental%2C%20I%20would%20like%20to%20ask%20about%20an%20appointment." target="_blank" rel="noopener"><small>MESSAGE US</small><b>Start WhatsApp</b><i>↗</i></a><a href="#appointment" class="contact-book"><small>PLAN A VISIT</small><b>Request an appointment</b><i>↓</i></a></div>
+<p class="contact-note">Messages and requests are answered by the clinic team during working hours.</p>
+</section>
+</aside>
 </main>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Dentist","name":"Asha Maxillofacial and Dental Super Speciality Hospital","url":"https://aigent297-debug.github.io/asha-dental-cinematic/","telephone":"+91 7276209022","address":{"@type":"PostalAddress","streetAddress":"Alsi Plots","addressLocality":"Akola","addressRegion":"Maharashtra","addressCountry":"IN"},"openingHours":"Mo-Sa 11:00-21:00","medicalSpecialty":"Dentistry"}</script>
-<script src="script.js">
+<script src="script.js?v=20260912-3">
 </script>
 </body>
 </html>

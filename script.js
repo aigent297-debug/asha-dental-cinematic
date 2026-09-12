@@ -109,20 +109,60 @@ setTimeout(reveal, 1400);
 
 const header = document.querySelector('.nav');
 const menuButton = document.querySelector('.menu-toggle');
+const menuLabel = menuButton.querySelector('span');
 const menuLinks = [...document.querySelectorAll('#site-menu a')];
 function closeMenu() {
   header.classList.remove('menu-open');
   menuButton.setAttribute('aria-expanded', 'false');
+  menuLabel.textContent = 'Menu';
   document.body.classList.remove('menu-visible');
 }
 menuButton.addEventListener('click', () => {
   const open = header.classList.toggle('menu-open');
   menuButton.setAttribute('aria-expanded', String(open));
+  menuLabel.textContent = open ? 'Close' : 'Menu';
   document.body.classList.toggle('menu-visible', open);
+  if (open) setContactAssistant(false);
 });
 menuLinks.forEach(link => link.addEventListener('click', closeMenu));
-addEventListener('keydown', event => { if (event.key === 'Escape') closeMenu(); });
+addEventListener('resize', () => { if (innerWidth > 920) closeMenu(); });
 addEventListener('scroll', () => header.classList.toggle('scrolled', scrollY > 30), { passive: true });
+
+const contactAssistant = document.querySelector('.contact-assistant');
+const contactLauncher = contactAssistant.querySelector('.contact-launcher');
+const contactPanel = contactAssistant.querySelector('.contact-panel');
+const contactClose = contactAssistant.querySelector('.contact-close');
+const contactActions = [...contactAssistant.querySelectorAll('.contact-options a')];
+
+function setContactAssistant(open, restoreFocus = false) {
+  contactAssistant.classList.toggle('open', open);
+  contactLauncher.setAttribute('aria-expanded', String(open));
+  contactPanel.setAttribute('aria-hidden', String(!open));
+  if (open) {
+    closeMenu();
+    requestAnimationFrame(() => contactClose.focus());
+  } else if (restoreFocus) {
+    contactLauncher.focus();
+  }
+}
+
+contactLauncher.addEventListener('click', () => {
+  setContactAssistant(!contactAssistant.classList.contains('open'));
+});
+contactClose.addEventListener('click', () => setContactAssistant(false, true));
+contactActions.forEach(link => link.addEventListener('click', () => setContactAssistant(false)));
+document.addEventListener('pointerdown', event => {
+  if (contactAssistant.classList.contains('open') && !contactAssistant.contains(event.target)) {
+    setContactAssistant(false);
+  }
+}, { passive: true });
+addEventListener('keydown', event => {
+  if (event.key === 'Escape') {
+    const assistantWasOpen = contactAssistant.classList.contains('open');
+    closeMenu();
+    setContactAssistant(false, assistantWasOpen);
+  }
+});
 
 document.addEventListener('pointerdown', () => {
   const scene = sceneController.activeScene;

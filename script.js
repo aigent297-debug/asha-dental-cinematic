@@ -10,11 +10,33 @@ class VideoSceneController {
 
   video(scene) { return scene?.querySelector('video.feature'); }
 
+  prepare(video) {
+    if (!video) return;
+    video.muted = true;
+    video.defaultMuted = true;
+    video.playsInline = true;
+    video.controls = false;
+    video.disablePictureInPicture = true;
+    video.setAttribute('muted', '');
+    video.setAttribute('playsinline', '');
+    video.setAttribute('webkit-playsinline', '');
+    video.setAttribute('controlslist', 'nodownload noplaybackrate noremoteplayback');
+    video.removeAttribute('controls');
+  }
+
+  play(scene) {
+    const video = this.video(scene);
+    if (!video || document.hidden) return;
+    this.prepare(video);
+    video.autoplay = true;
+    video.play()
+      .then(() => scene.classList.remove('autoplay-waiting'))
+      .catch(() => scene.classList.add('autoplay-waiting'));
+  }
+
   load(video, preload = 'metadata') {
     if (!video || video.src) return;
-    video.muted = true;
-    video.autoplay = true;
-    video.playsInline = true;
+    this.prepare(video);
     video.preload = preload;
     video.src = video.dataset.src;
     video.load();
@@ -34,7 +56,11 @@ class VideoSceneController {
   }
 
   activate(scene) {
-    if (!scene || scene === this.activeScene) return;
+    if (!scene) return;
+    if (scene === this.activeScene) {
+      if (this.video(scene)?.paused) this.play(scene);
+      return;
+    }
     const previous = this.activeScene;
     const activeIndex = this.scenes.indexOf(scene);
     this.activeScene = scene;
@@ -45,12 +71,15 @@ class VideoSceneController {
       const active = item === scene;
       item.classList.toggle('active', active);
       item.classList.toggle('past', index < activeIndex);
-      if (!active) video?.pause();
+      if (!active && video) {
+        video.autoplay = false;
+        video.pause();
+      }
     });
 
     const video = this.video(scene);
     this.load(video, activeIndex === 0 ? 'auto' : 'metadata');
-    video?.play().then(() => scene.classList.remove('autoplay-waiting')).catch(() => scene.classList.add('autoplay-waiting'));
+    this.play(scene);
     this.warm(activeIndex);
 
     this.rail.querySelectorAll('.rail-numbers a').forEach((item, index) => item.classList.toggle('current', index === activeIndex));
@@ -63,10 +92,19 @@ class VideoSceneController {
 
   deactivate() {
     if (!this.activeScene) return;
-    this.video(this.activeScene)?.pause();
-    this.activeScene.classList.remove('active');
+    const scene = this.activeScene;
     this.activeScene = null;
+    const video = this.video(scene);
+    if (video) {
+      video.autoplay = false;
+      video.pause();
+    }
+    scene.classList.remove('active');
     this.rail.classList.add('offstage');
+  }
+
+  resume() {
+    if (this.activeScene) this.play(this.activeScene);
   }
 
   choose() {
@@ -106,6 +144,11 @@ const heroVideo = sceneController.video(sceneController.scenes[0]);
 const reveal = () => loader.classList.add('done');
 heroVideo?.addEventListener('playing', reveal, { once: true });
 setTimeout(reveal, 1400);
+addEventListener('pageshow', () => sceneController.resume());
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) sceneController.video(sceneController.activeScene)?.pause();
+  else sceneController.resume();
+});
 
 const header = document.querySelector('.nav');
 const menuButton = document.querySelector('.menu-toggle');
@@ -167,7 +210,7 @@ addEventListener('keydown', event => {
 document.addEventListener('pointerdown', () => {
   const scene = sceneController.activeScene;
   if (scene?.classList.contains('autoplay-waiting')) {
-    sceneController.video(scene)?.play().then(() => scene.classList.remove('autoplay-waiting')).catch(() => {});
+    sceneController.play(scene);
   }
 }, { passive: true });
 
